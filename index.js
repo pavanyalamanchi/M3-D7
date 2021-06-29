@@ -53,15 +53,21 @@ const names = async() => {
     let respData = await fetch('https://jsonplaceholder.typicode.com/users')
     let resp = await respData.json()
     console.log(resp)
+<<<<<<< HEAD
   let ul2 = document.querySelector('.list-group')
     let h2_1 = document.createElement('h2')
     h2_1.innerText = 'Names'
     ul2.appendChild(h2_1)
+=======
+    let ul = document.querySelector('.list-group')
+
+>>>>>>> parent of 522799b... 1 & 2
     resp.forEach(element => {
         //console.log(element)
         let li = document.createElement('li')
         li.classList.add('list-group-item')
         li.innerText += element.name
+<<<<<<< HEAD
         ul2.appendChild(li)
 
     })
@@ -104,15 +110,10 @@ const names = async() => {
         if (item.indexOf(search) == -1){i.parentElement.parentElement.classList.add("d-none")}
         else {i.parentElement.parentElement.classList.remove("d-none")}
       }
-
-
-
-
-
-
-
-
-
+=======
+        ul.appendChild(li)
+    })
+>>>>>>> parent of 522799b... 1 & 2
 
     let dropDown = document.querySelector('.dropdown')
     let div = document.createElement('div')
@@ -157,10 +158,23 @@ const sort = async() => {
         })
 
     })
+<<<<<<< HEAD
   }  
     
     
     
+=======
+
+    let inputTag = document.querySelector('input').value
+    let pTag = document.createElement('p')
+    div.appendChild(pTag)
+
+    const result = resp.filter(user => {
+        if (inputTag === user.name) {
+            pTag.innerText = user
+        }
+    })
+>>>>>>> parent of 522799b... 1 & 2
 
 
         sortArray = sortArray.sort()
