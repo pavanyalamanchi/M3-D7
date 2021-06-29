@@ -5,119 +5,101 @@ window.onload = function() {
     sort()
 }
 
-/*const loadFunc = async() => {
-        let respData = await fetch('https://jsonplaceholder.typicode.com/users')
-        let resp = await respData.json()
-        console.log(resp)
+const loadFunc = async() => {
+    let respData = await fetch('https://jsonplaceholder.typicode.com/users')
+    let resp = await respData.json()
+    console.log(resp)
 
-        let ul = document.querySelector('.list-group')
-        let h2 = document.createElement('h2')
-        h2.innerText = 'Users'
-        ul.appendChild(h2)
-        resp.forEach(element => {
-            //console.log(element)
-            let li = document.createElement('li')
-            li.classList.add('list-group-item')
-            li.innerText += element.username
-            ul.appendChild(li)
+
+
+
+    let aTag = document.querySelectorAll('.dropdown-item')
+    let input = document.querySelector('.form-control')
+
+    aTag.forEach(element => {
+        element.addEventListener('click', () => {
+            input.classList.remove('d-none')
+            input.setAttribute('placeholder', element.innerText)
+                //input.classList.add('d-block')
         })
-
-        let dropDown = document.querySelector('.dropdown')
-        let div = document.createElement('div')
-        div.classList.add('dropdown-menu')
-
-        div.innerHTML = `<a class="dropdown-item" href="#">Name</a>
-                     <a class="dropdown-item" href="#">username</a>
-                     <a class="dropdown-item" href="#">email</a>`
-
-        dropDown.appendChild(div)
+    })
 
 
-        let aTag = document.querySelectorAll('.dropdown-item')
-        let input = document.querySelector('.form-control')
+    let row = document.querySelector(".row")
+    resp.forEach(ele => {
+        let col = document.createElement("div")
+        col.classList.add("col-12", "col-md-3", "mb-3", "d-flex")
+        col.insertAdjacentHTML('afterbegin', ` <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title"> Name:
+                    <strong> ${ele.name}
+                        </strong>
+                </h5>
+                <p class="card-text"> User Name:
+                    <strong> ${ele.username}
+                        </strong>
+                </p>
+                <p class="card-text"> Email:
+                    <strong> ${ ele.email }
+                        </strong>
+                </p>
+                <p class="card-text"> Phone:
+                    <strong> ${ ele.phone }
+                        </strong>
+                </p>
+                <p class="card-text"> Website:
+                    <strong> ${ ele.website }
+                        </strong>
+                </p>
+                <p class="card-text"> Company Name:
+                    <strong> ${ ele.company.name }
+                        </strong>
+                </p>
+            </div>
+        </div>`)
+        row.appendChild(col)
 
-        aTag.forEach(element => {
-            element.addEventListener('click', () => {
-                input.classList.remove('d-none')
-                input.setAttribute('placeholder', element.innerText)
-                    //input.classList.add('d-block')
-            })
-        })
+
+    });
+
+
+    let theSearch = document.querySelector(".form-control")
+    theSearch.addEventListener("keyup", function() {
+        let search = this.value.toLowerCase()
+        let allH5 = document.querySelectorAll("h5")
+        let cols = document.querySelectorAll(".col-12")
+
+        for (let i of allH5) {
+            let item = i.innerHTML.toLowerCase()
+            if (item.indexOf(search) == -1) { i.parentElement.parentElement.classList.add("d-none") } else { i.parentElement.parentElement.classList.remove("d-none") }
+        }
+    })
 
 
 
+}
 
-    }*/
 // Question 3
 const names = async() => {
     let respData = await fetch('https://jsonplaceholder.typicode.com/users')
     let resp = await respData.json()
     console.log(resp)
-<<<<<<< HEAD
-  let ul2 = document.querySelector('.list-group')
+    let ul2 = document.querySelector('.list-group')
     let h2_1 = document.createElement('h2')
     h2_1.innerText = 'Names'
     ul2.appendChild(h2_1)
-=======
-    let ul = document.querySelector('.list-group')
+        //let ul = document.querySelector('.list-group')
 
->>>>>>> parent of 522799b... 1 & 2
     resp.forEach(element => {
         //console.log(element)
         let li = document.createElement('li')
         li.classList.add('list-group-item')
         li.innerText += element.name
-<<<<<<< HEAD
+
         ul2.appendChild(li)
 
     })
 }
-
-
-    
-    
-    const displayHtml = function () {
-        let row = document.querySelector(".row")
-        resp.forEach(ele => {
-            let col = document.createElement("div")
-            col.classList.add("col-12", "col-md-3", "mb-3", "d-flex")
-            col.insertAdjacentHTML(`afterbegin`, `<div class="card" style="width: 18rem;">
-            
-            <div class="card-body">
-            <h5 class="card-title">Name: <strong>${ele.name}</strong></h5>
-            <p class="card-text"> User Name: <strong>${ele.username}</strong></p>
-            <p class="card-text"> Email: <strong>${ele.email}</strong></p>
-            <p class="card-text"> Phone: <strong>${ele.phone}</strong></p>
-            <p class="card-text">Website: <strong>${ele.website}</strong></p>
-            <p class="card-text">Company Name: <strong>${ele.company.name}</strong></p>
-            </div>
-          </div>`)
-          row.appendChild(col)
-    
-          
-        });
-    }
-    displayHtml()
-
-    let theSearch = document.querySelector(".form-control")
-    theSearch.addEventListener("keyup", function(){
-      let search = this.value.toLowerCase()
-      let allH5 = document.querySelectorAll("h5")
-      let cols = document.querySelectorAll(".col-12")
-      
-      for (let i of allH5){
-        let item = i.innerHTML.toLowerCase()
-        if (item.indexOf(search) == -1){i.parentElement.parentElement.classList.add("d-none")}
-        else {i.parentElement.parentElement.classList.remove("d-none")}
-      }
-=======
-        ul.appendChild(li)
-    })
->>>>>>> parent of 522799b... 1 & 2
-
-    let dropDown = document.querySelector('.dropdown')
-    let div = document.createElement('div')
-    div.classList.add('dropdown-menu')
 
 // Question 4
 const address = async() => {
@@ -156,27 +138,6 @@ const sort = async() => {
         resp.forEach(element => {
             sortArray.push(element.name)
         })
-
-    })
-<<<<<<< HEAD
-  }  
-    
-    
-    
-=======
-
-    let inputTag = document.querySelector('input').value
-    let pTag = document.createElement('p')
-    div.appendChild(pTag)
-
-    const result = resp.filter(user => {
-        if (inputTag === user.name) {
-            pTag.innerText = user
-        }
-    })
->>>>>>> parent of 522799b... 1 & 2
-
-
         sortArray = sortArray.sort()
         for (let i = 0; i < resp.length; i++) {
             let li = document.createElement('li')
@@ -185,5 +146,4 @@ const sort = async() => {
             ul4.appendChild(li)
         }
     })
-
-
+}
