@@ -5,7 +5,7 @@ window.onload = function() {
     sort()
 }
 
-const loadFunc = async() => {
+/*const loadFunc = async() => {
         let respData = await fetch('https://jsonplaceholder.typicode.com/users')
         let resp = await respData.json()
         console.log(resp)
@@ -47,8 +47,8 @@ const loadFunc = async() => {
 
 
 
-    }
-    // Question 3
+    }*/
+// Question 3
 const names = async() => {
     let respData = await fetch('https://jsonplaceholder.typicode.com/users')
     let resp = await respData.json()
