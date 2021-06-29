@@ -98,7 +98,7 @@ const sort = async() => {
     let sortButton = document.querySelector('.sort-button')
     sortButton.addEventListener('click', function() {
         let h2_3 = document.createElement('h2')
-        h2_3.innerText = 'Ascending Sort'
+        h2_3.innerText = 'Sorted Users'
         ul4.appendChild(h2_3)
         resp.forEach(element => {
             sortArray.push(element.name)
